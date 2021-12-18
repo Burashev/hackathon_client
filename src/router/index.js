@@ -5,7 +5,7 @@ import Home from "@/views/Home";
 import Login from "@/views/Login";
 import Register from "@/views/Register";
 import store from "@/store";
-import Profile from "@/components/Profile";
+import Profile from "@/views/Profile";
 import AuthService from "@/services/AuthService";
 
 const routes = [
@@ -72,8 +72,7 @@ router.beforeEach((to, from, next) => {
                 name: 'Login'
             });
         }
-    }
-    else if (to.matched.some(record => record.meta.guest)) {
+    } else if (to.matched.some(record => record.meta.guest)) {
         if (store.getters.isAuth || AuthService.lsGet()) {
             store.dispatch('addNotification', {message: 'На данную страницу могут попасть только гости', error: true});
             next({

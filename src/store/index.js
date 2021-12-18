@@ -38,10 +38,10 @@ export default createStore({
                 .then(res => {
                     commit('SET_USER', res.data.data);
                     AuthService.lsSet(res.data.data.api_token);
-                    dispatch('addNotification', {message: 'Success created'})
+                    dispatch('addNotification', {message: 'Успешная регистрация'})
                 })
                 .catch(error => {
-                    dispatch('addNotification', {message: 'Error', error: true})
+                    dispatch('addNotification', {message: 'Ошибка регистрации', error: true})
                     throw(error);
                 })
         },
@@ -50,10 +50,10 @@ export default createStore({
                 .then(res => {
                     commit('SET_USER', res.data.data);
                     AuthService.lsSet(res.data.data.api_token);
-                    dispatch('addNotification', {message: 'Successful login'})
+                    dispatch('addNotification', {message: 'Успешный вход'})
                 })
                 .catch(error => {
-                    dispatch('addNotification', {message: 'Error', error: true})
+                    dispatch('addNotification', {message: 'Вход не выполнен. Проверьте данные', error: true})
                     throw(error);
                 })
         },
@@ -78,7 +78,7 @@ export default createStore({
     },
     getters: {
         isAuth(state) {
-            return AuthService.lsGet();
+            return !!AuthService.lsGet();
         }
     },
     modules: { notifications }

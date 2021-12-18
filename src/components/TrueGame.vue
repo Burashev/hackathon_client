@@ -45,6 +45,7 @@
 
 <script>
 import AppHeader from "@/components/AppHeader";
+
 export default {
   name: "TrueGame",
   components: {AppHeader},
@@ -63,12 +64,25 @@ export default {
       return this.gameData.length
     }
   },
+  watch: {
+    currentRound: {
+      handler() {
+        if (this.currentRound === this.totalQuestions) {
+          this.$store.dispatch('addNotification',
+              {
+                message: `Вы набрали ${this.correctAnswers} правильных ответов из ${this.totalQuestions}`,
+                error: this.correctAnswers > this.totalQuestions - 2
+              })
+          this.$router.push('/profile')
+        }
+      }
+    }
+  },
   methods: {
     trueCheck(round) {
       if (round.correct) {
         this.correctAnswers += 1;
-      }
-      else {
+      } else {
 
       }
       this.currentRound += 1;
@@ -76,8 +90,7 @@ export default {
     falseCheck(round) {
       if (!round.correct) {
         this.correctAnswers += 1;
-      }
-      else {
+      } else {
 
       }
       this.currentRound += 1;

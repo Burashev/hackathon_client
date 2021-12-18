@@ -6,7 +6,7 @@
     </a>
 
     <h2 class="title">
-      Зарегестрируйте аккаунт
+      Зарегистрируйте аккаунт
     </h2>
 
     <form class="form" @submit.prevent="formSubmit">
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService";
 export default {
   data() {
     return {

@@ -1,6 +1,4 @@
 <template>
-  <div class="notification__block">
-  </div>
   <router-view/>
   <NotificationBlock></NotificationBlock>
 </template>
@@ -15,7 +13,7 @@ export default {
   created() {
     setInterval(() => {
       this.$store.dispatch('getUser');
-    }, 1000)
+    }, 5000)
   }
 }
 </script>
