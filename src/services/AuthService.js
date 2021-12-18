@@ -15,9 +15,12 @@ export default {
         })
     },
     lsSet(token) {
-        localStorage.setItem('api_token', token)
+        localStorage.setItem('api_token', token);
     },
     lsGet() {
-        return localStorage.getItem('api_token')
+        return localStorage.getItem('api_token');
+    },
+    lsClear() {
+        localStorage.clear();
     }
 }

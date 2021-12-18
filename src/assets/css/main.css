@@ -74,7 +74,6 @@ a {
     transition: 0.2s linear background-color;
 }
 
-
 .btn:hover {
     background-color: #3933b4;
 }
@@ -86,6 +85,15 @@ a {
 
 .btn_light:hover {
     background-color: #c7d2fe;
+}
+
+
+.btn_green {
+    background-color: mediumseagreen;
+}
+
+.btn_green:hover {
+    background-color: #31a163;
 }
 
 .container {
@@ -130,6 +138,9 @@ a {
     background-color: indianred;
 }
 
+ul {
+    list-style-type: none;
+}
 
 .title {
     font-size: 2.2rem;
@@ -496,4 +507,176 @@ verno-ne-verno
     margin-top: 25px;
     font-size: 1rem;
     font-weight: 300;
+}
+
+/*
+profile
+ */
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user__avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.user__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user__info-col {
+    display: flex;
+    align-items: center;
+}
+.user__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.user__text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.profile {
+    margin-bottom: 90px;
+}
+
+.profile__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+}
+
+.profile__item {
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.profile__item-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.profile__item-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile__item-text {
+    font-size: 0.9rem;
+}
+
+.profile__item-body {
+    padding: 20px;
+}
+
+/*
+statistic
+ */
+
+
+.statistic-result__img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+
+.statistic-result__win-img {
+    background-color: mediumseagreen;
+}
+
+.statistic-result__lose-img {
+    background-color: indianred;
+}
+
+.statistic-result {
+    display: flex;
+    align-items: center;
+}
+
+
+.statistic-item {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    padding: 15px 0;
+}
+
+.statistic-item__date-col {
+    display: flex;
+    align-items: center;
+}
+
+.statistic__date {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+
+.statistic__game-name {
+    margin-bottom: 5px;
+}
+
+.statistic__result-score {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.statistic-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.profile__games-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile__game-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.2s linear background-color;
+    cursor: pointer;
+}
+
+.profile__game-item:hover {
+    background-color: #e0e7ff;
+}
+
+.profile__game-icon img {
+    width: 60px;
+    height: 60px
+}
+
+.profile__game-icon {
+    margin-bottom:  10px;
+}
+
+
+.profile__game-title {
+    margin-bottom: 10px;
+}
+
+.profile__game-text {
+    text-align: center;
+    font-size: 1rem;
 }

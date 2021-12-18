@@ -8,11 +8,8 @@
           </a>
 
           <nav class="intro__nav">
-            <a href="#" @click.prevent="$router.push('/games')" class="intro__nav-link text">
-              Игры
-            </a>
-            <a href="#" class="intro__nav-link text">
-              Ссылка 2
+            <a href="#" @click.prevent="$router.push('/profile')" class="intro__nav-link text">
+              Профиль
             </a>
             <a href="#" class="intro__nav-link text">
               Ссылка 3

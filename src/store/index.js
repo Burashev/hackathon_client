@@ -22,44 +22,63 @@ export default createStore({
     },
     actions: {
         loadGames({commit}) {
-            GameService.getGames().then(res => {
-                commit('SET_GAMES', res.data.data)
-            })
+            GameService.getGames()
+                .then(res => {
+                    commit('SET_GAMES', res.data.data)
+                })
         },
         loadGameData({commit}, id) {
-            GameService.getGameData(id).then(res => {
-                commit('SET_GAME_DATA', res.data.data)
-            })
+            GameService.getGameData(id)
+                .then(res => {
+                    commit('SET_GAME_DATA', res.data.data)
+                })
         },
         registerUser({commit, dispatch}, userData) {
             return AuthService.postSignUp(userData)
                 .then(res => {
                     commit('SET_USER', res.data.data);
                     AuthService.lsSet(res.data.data.api_token);
+                    dispatch('addNotification', {message: 'Success created'})
                 })
                 .catch(error => {
-                    dispatch('addNotification', {message: 'error', error: true})
+                    dispatch('addNotification', {message: 'Error', error: true})
                     throw(error);
                 })
         },
-        loginUser({ commit }, userData) {
+        loginUser({commit, dispatch}, userData) {
             return AuthService.postSignIn(userData)
                 .then(res => {
                     commit('SET_USER', res.data.data);
                     AuthService.lsSet(res.data.data.api_token);
+                    dispatch('addNotification', {message: 'Successful login'})
                 })
                 .catch(error => {
+                    dispatch('addNotification', {message: 'Error', error: true})
                     throw(error);
                 })
         },
-        getUser({ commit, state }) {
+        getUser({commit, state}) {
+            if (!AuthService.lsGet()) {
+                commit('SET_USER', null);
+                return null;
+            }
             return AuthService.getUser(AuthService.lsGet())
                 .then((res) => {
-                    commit('SET_USER', res.data.data)
+                    commit('SET_USER', res.data.data);
                 })
                 .catch(error => {
-                    commit('SET_USER', null)
+                    AuthService.lsClear();
+                    commit('SET_USER', null);
                 })
+        },
+        logoutUser({ commit }) {
+            commit('SET_USER', null);
+            AuthService.lsClear();
+        }
+    },
+    getters: {
+        isAuth(state) {
+            return AuthService.lsGet();
         }
     },
     modules: { notifications }
