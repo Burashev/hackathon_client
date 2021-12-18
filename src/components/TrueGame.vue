@@ -68,12 +68,18 @@ export default {
     currentRound: {
       handler() {
         if (this.currentRound === this.totalQuestions) {
+          const statistic = {
+            game_id: 1,
+            score: this.correctAnswers,
+            score_max: this.totalQuestions
+          }
           this.$store.dispatch('addNotification',
               {
                 message: `Вы набрали ${this.correctAnswers} правильных ответов из ${this.totalQuestions}`,
                 error: this.correctAnswers <= this.totalQuestions - 2
-              })
-          this.$router.push('/profile')
+              });
+          this.$router.push('/profile');
+          this.$store.dispatch('addUserStatistic', statistic);
         }
       }
     }

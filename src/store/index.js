@@ -7,7 +7,8 @@ export default createStore({
     state: {
         games: [],
         gameData: [],
-        user: null
+        user: null,
+        statistic: []
     },
     mutations: {
         SET_GAMES(state, games) {
@@ -18,6 +19,9 @@ export default createStore({
         },
         SET_USER(state, user) {
             state.user = user;
+        },
+        SET_STATISTIC(state, statistic) {
+            state.statistic = statistic
         }
     },
     actions: {
@@ -71,14 +75,32 @@ export default createStore({
                     commit('SET_USER', null);
                 })
         },
-        logoutUser({ commit }) {
+        logoutUser({commit}) {
             commit('SET_USER', null);
             AuthService.lsClear();
         },
-        changeUserFullname({ commit }, fullname) {
+        changeUserFullname({commit}, fullname) {
             AuthService.changeFullname(AuthService.lsGet(), fullname)
                 .then(res => {
 
+                })
+                .catch(error => {
+
+                })
+        },
+        addUserStatistic({commit}, statistic) {
+            GameService.addGameStatistic(AuthService.lsGet(), statistic)
+                .then(res => {
+
+                })
+                .catch(error => {
+
+                })
+        },
+        getUserStatistic({commit}) {
+            GameService.getUserStatistic(AuthService.lsGet())
+                .then(res => {
+                    commit('SET_STATISTIC', res.data.data)
                 })
                 .catch(error => {
 
@@ -90,5 +112,5 @@ export default createStore({
             return !!AuthService.lsGet();
         }
     },
-    modules: { notifications }
+    modules: {notifications}
 })

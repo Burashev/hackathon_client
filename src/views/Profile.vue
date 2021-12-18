@@ -5,7 +5,7 @@
       <div class="user">
         <div class="user__col user__info-col">
           <div class="user__avatar">
-            <img src="@/assets/img/profile/avatar.jpg" alt="avatar image">
+            <img :src="user?.avatar" alt="avatar image">
           </div>
 
           <div class="user__info">
@@ -79,19 +79,19 @@
               </h3>
 
               <ul class="statistic-list">
-                <li class="statistic-item">
+                <li class="statistic-item" v-for="stat in statistic">
                   <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__win-img">
+                    <div class="statistic-result__img" :class="+stat.score >= stat.score_max - 2 ? 'statistic-result__win-img' : 'statistic-result__lose-img'">
                       V
                     </div>
 
                     <div class="statistic__game-result-wrapper">
                       <h4 class="statistic__game-name">
-                        Верно не верно
+                        {{ stat.game_title }}
                       </h4>
 
                       <p class="text statistic__result-score">
-                        3 / 3
+                        {{ stat.score }} / {{ stat.score_max }}
                       </p>
                     </div>
 
@@ -99,182 +99,7 @@
 
                   <div class="statistic-item__col statistic-item__date-col">
                     <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__lose-img">
-                      L
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__win-img">
-                      V
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__lose-img">
-                      L
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__win-img">
-                      V
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__lose-img">
-                      L
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__win-img">
-                      V
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
-                    </div>
-                  </div>
-                </li>
-
-                <li class="statistic-item">
-                  <div class="statistic-item__col statistic-result">
-                    <div class="statistic-result__img statistic-result__lose-img">
-                      L
-                    </div>
-
-                    <div class="statistic__game-result-wrapper">
-                      <h4 class="statistic__game-name">
-                        Верно не верно
-                      </h4>
-
-                      <p class="text statistic__result-score">
-                        3 / 3
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="statistic-item__col statistic-item__date-col">
-                    <div class="text statistic__date">
-                      18.12.2021
+                      {{ stat.date }}
                     </div>
                   </div>
                 </li>
@@ -306,6 +131,9 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    statistic() {
+      return this.$store.state.statistic;
+    }
   },
   methods: {
     changeFullname() {
@@ -321,6 +149,7 @@ export default {
   },
   created() {
     this.$store.dispatch('getUser');
+    this.$store.dispatch('getUserStatistic');
   }
 }
 </script>

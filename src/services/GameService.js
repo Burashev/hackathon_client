@@ -7,5 +7,18 @@ export default {
     getGameData(id) {
         return apiClient.get(`/game/${id}`);
     },
-
+    addGameStatistic(token, statistic) {
+        return apiClient.post('/user/statistic/add', statistic, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+    },
+    getUserStatistic(token) {
+        return apiClient.get('/user/statistic', {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+    }
 }
