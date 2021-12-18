@@ -1,26 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Games</router-link>
+  {{ $store.state }}
+  <div class="notification__block">
   </div>
   <router-view/>
+  <NotificationBlock></NotificationBlock>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-}
+<script>
+import NotificationBlock from "@/components/NotificationBlock";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
+  components: {NotificationBlock},
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  created() {
+    setInterval(() => {
+      this.$store.dispatch('getUser');
+    }, 2000)
+  }
 }
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style src="@/assets/css/main.css">
 </style>

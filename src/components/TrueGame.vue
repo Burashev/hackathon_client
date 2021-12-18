@@ -56,7 +56,4 @@ export default {
 </script>
 
 <style scoped>
-.block {
-
-}
 </style>

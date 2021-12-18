@@ -1,13 +1,4 @@
-import axios from 'axios';
-
-const apiClient = axios.create({
-    baseURL: 'http://localhost:8000/api',
-    withCredentials: false,
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-})
+import { apiClient } from '@/services/apiClient';
 
 export default {
     getGames() {
@@ -15,5 +6,6 @@ export default {
     },
     getGameData(id) {
         return apiClient.get(`/game/${id}`);
-    }
+    },
+
 }
