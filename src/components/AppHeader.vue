@@ -13,7 +13,7 @@
       </nav>
 
       <nav class="header__nav-auth">
-        <a href="#">Профиль</a>
+        <a href="#" @click.prevent="$router.push('/profile')">Профиль</a>
         <a href="#" class="btn exit-btn" @click.prevent="logout">Выход</a>
       </nav>
 

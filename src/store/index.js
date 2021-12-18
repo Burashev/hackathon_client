@@ -74,6 +74,15 @@ export default createStore({
         logoutUser({ commit }) {
             commit('SET_USER', null);
             AuthService.lsClear();
+        },
+        changeUserFullname({ commit }, fullname) {
+            AuthService.changeFullname(AuthService.lsGet(), fullname)
+                .then(res => {
+
+                })
+                .catch(error => {
+
+                })
         }
     },
     getters: {

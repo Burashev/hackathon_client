@@ -71,7 +71,7 @@ export default {
           this.$store.dispatch('addNotification',
               {
                 message: `Вы набрали ${this.correctAnswers} правильных ответов из ${this.totalQuestions}`,
-                error: this.correctAnswers > this.totalQuestions - 2
+                error: this.correctAnswers <= this.totalQuestions - 2
               })
           this.$router.push('/profile')
         }

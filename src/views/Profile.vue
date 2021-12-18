@@ -10,7 +10,8 @@
 
           <div class="user__info">
             <h2 class="user__title">
-              Себастьян Левандовский
+              <input type="text" v-model="fullName" v-if="fullnameEdit">
+              <span v-if="!fullnameEdit">{{ user?.fullname }}</span>
             </h2>
 
             <p class="text user__text">Аккаунт создан 25 Августа, 2021</p>
@@ -19,7 +20,7 @@
         </div>
 
         <div class="user__col">
-          <button class="btn btn_light">Изменить имя</button>
+          <button class="btn" :class="fullnameEdit ? '' : 'btn_light'" @click="changeFullname">{{ fullnameEdit ? 'Сохранить имя' : 'Изменить имя' }}</button>
         </div>
       </div>
 
@@ -58,7 +59,7 @@
                   </div>
 
                   <h3 class="profile__game-title">
-                    С английского на русский
+                    С татарского на русский
                   </h3>
 
                   <p class="text profile__game-text">
@@ -294,8 +295,33 @@ import AppHeader from "@/components/AppHeader";
 
 export default {
   name: "Profile",
-  components: { AppHeader }
-
+  data() {
+    return {
+      fullName: '',
+      fullnameEdit: false
+    }
+  },
+  components: { AppHeader },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  methods: {
+    changeFullname() {
+      if (!this.fullnameEdit) {
+        this.fullnameEdit = true;
+        this.fullName = this.user.fullname;
+        return null;
+      }
+      this.fullnameEdit = false;
+      this.$store.dispatch('changeUserFullname', this.fullName)
+      this.$store.dispatch('getUser');
+    }
+  },
+  created() {
+    this.$store.dispatch('getUser');
+  }
 }
 </script>
 

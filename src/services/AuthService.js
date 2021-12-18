@@ -14,6 +14,13 @@ export default {
             }
         })
     },
+    changeFullname(token, fullname) {
+        return apiClient.post('/user/changeFullname', {fullname}, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+    },
     lsSet(token) {
         localStorage.setItem('api_token', token);
     },
