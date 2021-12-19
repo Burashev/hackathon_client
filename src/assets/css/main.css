@@ -780,3 +780,18 @@ tat-rus-game
     color: #fff;
 }
 
+.verno-ne-verno-na-dvoih .progress-row {
+    justify-content: center;
+}
+.game__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    margin-top: 50px;
+}
+
+.player-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

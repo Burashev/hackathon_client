@@ -1,69 +1,77 @@
 <template>
   <section class="verno-ne-verno">
-    <div class="container container_game">
+    <div class="container">
 
       <h4 class="block-name">
         Верно не верно на двоих
       </h4>
+      <div class="game__grid">
+        <div class="game__col">
+          <div class="player-row">
+            <div class="player" :class="!player ? 'player-active' : ''">
+              P1
+            </div>
+          </div>
 
-      <div class="players-row">
-        <div class="player first-player " :class="!player ? 'player-active' : ''">
-          P1
+          <div v-for="(round, idx) in gameData"
+               :key="idx"
+               v-show="idx === currentRound1"
+          >
+            <div class="game-block">
+              <h3 class="title word-to-translate">{{ round.question }}</h3>
+              <h3 class="subtitle translate-word">
+                {{ round.answer }}
+              </h3>
+            </div>
+
+            <h3 class="subtitle is-correct-translate">Верен ли перевод?</h3>
+
+            <div class="buttons-row" v-show="!player">
+              <button class="btn" @click="trueCheck(round)">
+                Верно
+              </button>
+
+              <button class="btn btn_light" @click="falseCheck(round)">
+                Не верно
+              </button>
+            </div>
+          </div>
+
         </div>
 
-        <div class="player" :class="player ? 'player-active' : ''">
-          P2
+        <div class="game__col">
+          <div class="player-row">
+            <div class="player" :class="player ? 'player-active' : ''">
+              P2
+            </div>
+          </div>
+
+          <div v-for="(round, idx) in gameData2"
+               :key="idx"
+               v-show="idx === currentRound2"
+          >
+            <div class="game-block">
+              <h3 class="title word-to-translate">{{ round.question }}</h3>
+              <h3 class="subtitle translate-word">
+                {{ round.answer }}
+              </h3>
+            </div>
+
+            <h3 class="subtitle is-correct-translate">Верен ли перевод?</h3>
+
+            <div class="buttons-row" v-show="player">
+              <button class="btn" @click="trueCheck(round)">
+                Верно
+              </button>
+
+              <button class="btn btn_light" @click="falseCheck(round)">
+                Не верно
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
-
-      <div v-for="(round, idx) in gameData"
-           :key="idx"
-           v-show="idx === currentRound1 && !player"
-      >
-        <div class="game-block">
-          <h3 class="title word-to-translate">{{ round.question }}</h3>
-          <h3 class="subtitle translate-word">
-            {{ round.answer }}
-          </h3>
-        </div>
-
-        <h3 class="subtitle is-correct-translate">Верен ли перевод?</h3>
-
-        <div class="buttons-row">
-          <button class="btn" @click="trueCheck(round)">
-            Верно
-          </button>
-
-          <button class="btn btn_light" @click="falseCheck(round)">
-            Не верно
-          </button>
-        </div>
-      </div>
-      <div v-for="(round, idx) in gameData2"
-           :key="idx"
-           v-show="idx === currentRound2 && player"
-      >
-        <div class="game-block">
-          <h3 class="title word-to-translate">{{ round.question }}</h3>
-          <h3 class="subtitle translate-word">
-            {{ round.answer }}
-          </h3>
-        </div>
-
-        <h3 class="subtitle is-correct-translate">Верен ли перевод?</h3>
-
-        <div class="buttons-row">
-          <button class="btn" @click="trueCheck(round)">
-            Верно
-          </button>
-
-          <button class="btn btn_light" @click="falseCheck(round)">
-            Не верно
-          </button>
-        </div>
-      </div>
-
     </div>
   </section>
 </template>
