@@ -1,12 +1,17 @@
 <template>
-<TrueGame v-if="id === '1'"></TrueGame>
+  <AppHeader></AppHeader>
+  <TrueGame v-if="id === '1'"></TrueGame>
+  <TatRusGame v-if="id === '2'"></TatRusGame>
 </template>
 
 <script>
 import TrueGame from "@/components/TrueGame";
+import TatRusGame from "@/components/TatRusGame";
+import AppHeader from "@/components/AppHeader";
+
 export default {
   name: "Game",
-  components: {TrueGame},
+  components: {TrueGame, TatRusGame, AppHeader},
   props: ['id'],
   created() {
     this.$store.dispatch('loadGameData', this.id);

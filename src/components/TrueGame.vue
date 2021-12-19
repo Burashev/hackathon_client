@@ -1,5 +1,4 @@
 <template>
-  <AppHeader></AppHeader>
   <section class="verno-ne-verno">
     <div class="container container_game">
       <h4 class="block-name">
@@ -44,11 +43,10 @@
 </template>
 
 <script>
-import AppHeader from "@/components/AppHeader";
 
 export default {
   name: "TrueGame",
-  components: {AppHeader},
+  components: {},
 
   data() {
     return {

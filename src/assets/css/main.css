@@ -124,6 +124,7 @@ a {
 }
 
 .notification {
+    display: none;
     padding: 25px;
     color: #fff;
     border-radius: 8px;
@@ -147,6 +148,59 @@ ul {
     text-align: center;
     font-weight: 800;
     margin-bottom: 20px;
+}
+
+.numeric-list {
+    padding: 10px 0;
+}
+
+.numeric-list__item {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.numeric-list__item-true .numeric-list__number {
+    background-color: mediumseagreen;
+}
+
+.numeric-list__item-true .numeric-list__text {
+    color: green;
+}
+
+.numeric-list__item-false .numeric-list__number {
+    background-color: indianred;
+}
+
+.numeric-list__item-false .numeric-list__text {
+    color: red;
+}
+
+.numeric-list__number {
+    background-color: #4f46e5;
+    color: #fff;
+    padding: 15px 18px;
+}
+
+.numeric-list__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+
+.sound-icon {
+    background-color: #4f46e5;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .subtitle {
@@ -680,3 +734,30 @@ statistic
     text-align: center;
     font-size: 1rem;
 }
+
+/*
+tat-rus-game
+ */
+
+.tat-rus-game {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 50px;
+    margin-top: 30px;
+}
+
+.tat-rus-game__word-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tat-rus .sound-icon{
+    margin-bottom: 15px;
+}
+.tat-rus .game-block .title {
+    font-size: 2rem;
+}
+
+
+

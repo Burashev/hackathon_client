@@ -10,7 +10,7 @@
 
           <div class="user__info">
             <h2 class="user__title">
-              <input type="text" v-model="fullName" v-if="fullnameEdit">
+              <input type="text" v-model="fullName" v-if="fullnameEdit" class="input">
               <span v-if="!fullnameEdit">{{ user?.fullname }}</span>
             </h2>
 
@@ -53,7 +53,7 @@
                   </p>
                 </div>
 
-                <div class="profile__game-item">
+                <div class="profile__game-item" @click="$router.push('/game/2')">
                   <div class="profile__game-icon">
                     <img src="@/assets/img/profile/book.svg" alt="verno-ne-verno">
                   </div>
