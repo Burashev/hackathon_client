@@ -42,7 +42,7 @@ export default {
     formSubmit() {
       this.$store.dispatch('registerUser', this.user)
       .then(() => {
-        this.$router.push('/');
+        this.$router.push('/profile');
       })
       .catch((error) => {
         console.log(error)

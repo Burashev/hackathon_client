@@ -10,10 +10,10 @@
     </h2>
 
     <form class="form" @submit.prevent="formSubmit">
-      <label for="email" class="label" >Почта</label>
+      <label for="email" class="label">Почта</label>
       <input type="text" id="email" class="input" v-model="user.email">
 
-      <label for="password" class="label" >Пароль</label>
+      <label for="password" class="label">Пароль</label>
       <input type="password" id="password" class="input" v-model="user.password">
 
       <button class="btn">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService";
+
 export default {
   name: "Login",
   data() {
@@ -39,9 +39,9 @@ export default {
   methods: {
     formSubmit() {
       this.$store.dispatch('loginUser', this.user)
-      .then(() => {
-        this.$router.push('/');
-      });
+          .then(() => {
+            this.$router.push('/profile');
+          });
     }
   }
 }

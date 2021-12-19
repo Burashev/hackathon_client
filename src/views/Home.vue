@@ -11,11 +11,11 @@
             <a href="#" @click.prevent="$router.push('/profile')" class="intro__nav-link text">
               Профиль
             </a>
-            <a href="#" class="intro__nav-link text">
-              Ссылка 3
+            <a href="#benefits" class="intro__nav-link text">
+              Преимущества
             </a>
-            <a href="#" class="intro__nav-link text">
-              Ссылка 4
+            <a href="#stats" class="intro__nav-link text">
+              Статистика
             </a>
           </nav>
         </div>
@@ -48,7 +48,7 @@
 
   </section>
 
-  <section class="benefits">
+  <section class="benefits" id="benefits">
     <div class="container">
       <h4 class="block-name">
         Преимущества
@@ -136,7 +136,7 @@
     </div>
   </section>
 
-  <section class="stats">
+  <section class="stats" id="stats">
     <div class="container">
       <h2 class="title stats__title">
         Ускорьте свой прогресс с TatLearn
@@ -147,7 +147,7 @@
         На нас лежит ответственность за успехи каждого.
       </h3>
 
-      <div class="stats__grid">
+      <div class="stats__grid" >
         <div class="stats__col">
           <h3 class="stats__col-title">
             100%
@@ -188,17 +188,14 @@
       </p>
 
       <nav class="footer__nav">
-        <a href="#" class="footer__nav-link">
-          Ссылка 1
+        <a href="#" @click.prevent="$router.push('/profile')" class="footer__nav-link">
+          Профиль
         </a>
-        <a href="#" class="footer__nav-link">
-          Ссылка 2
+        <a href="#benefits" class="footer__nav-link">
+          Преимущества
         </a>
-        <a href="#" class="footer__nav-link">
-          Ссылка 3
-        </a>
-        <a href="#" class="footer__nav-link">
-          Ссылка 4
+        <a href="#stats" class="footer__nav-link">
+          Статистика
         </a>
       </nav>
     </div>

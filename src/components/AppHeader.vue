@@ -6,10 +6,9 @@
       </a>
 
       <nav class="header__nav-main">
-        <a href="#">Ссылка 1</a>
-        <a href="#">Ссылка 2</a>
-        <a href="#">Ссылка 3</a>
-        <a href="#">Ссылка 4</a>
+        <a href="#" @click.prevent="$router.push('/game/1')">Игра 1</a>
+        <a href="#" @click.prevent="$router.push('/game/2')">Игра 2</a>
+        <a href="#" @click.prevent="$router.push('/game/3')">Игра 3</a>
       </nav>
 
       <nav class="header__nav-auth">
