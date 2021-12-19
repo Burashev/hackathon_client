@@ -124,7 +124,6 @@ a {
 }
 
 .notification {
-    display: none;
     padding: 25px;
     color: #fff;
     border-radius: 8px;
@@ -759,5 +758,25 @@ tat-rus-game
     font-size: 2rem;
 }
 
+.players-row {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
+.player {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0,0,0, 0.2);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.first-player {
+    margin-right: 5px;
+}
+
+.player-active {
+    background-color: #4f46e5;
+    color: #fff;
+}
 

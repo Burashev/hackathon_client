@@ -29,11 +29,11 @@
           <div class="profile__item">
             <div class="profile__item-header">
               <h3 class="profile__item-title">
-                Доступные игры
+                Игры на одного
               </h3>
 
               <p class="text profile__item-text">
-                Выбирайте на свой вкус
+                Развивайтесь индивидуально
               </p>
             </div>
 
@@ -66,6 +66,36 @@
                     Выберите правильный перевод
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="profile__item">
+            <div class="profile__item-header">
+              <h3 class="profile__item-title">
+                Игры на двоих
+              </h3>
+
+              <p class="text profile__item-text">
+                Соревнуйтесь с друзьями
+              </p>
+            </div>
+
+            <div class="profile__item-body">
+              <div class="profile__games-grid">
+                <div class="profile__game-item" @click.prevent="$router.push('/game/3')">
+                  <div class="profile__game-icon">
+                    <img src="@/assets/img/profile/two-persons.svg" alt="verno-ne-verno">
+                  </div>
+
+                  <h3 class="profile__game-title">
+                    Верно не верно на двоих
+                  </h3>
+
+                  <p class="text profile__game-text">
+                    Узнайте, кто из вас знает татарский лучше!
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
